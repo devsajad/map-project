@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/sass/main.scss" />
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="src/js/main.js"></script>
+    <title>Map Marker</title>
+  </head>
+  <body>
+    <div class="sidebar sidebar__main">
+      <nav class="sidebar__nav">
+        <div class="sidebar__nav__icon-container">
+          <i class="ph ph-bookmark-simple sidebar__nav__icon"></i>
+          <p class="sidebar__nav__icon-caption">Marked</p>
+        </div>
+        <div class="sidebar__nav__icon-container add-container hidden">
+          <i class="ph ph-plus-circle sidebar__nav__icon add-icon"></i>
+          <p class="sidebar__nav__icon-caption">add</p>
+        </div>
+      </nav>
+
+      <ul class="sidebar__main--list-container hidden">
+        <!-- <li class="sidebar__main--list">
+          <div class="sidebar__main--text-container">
+            <p class="title">Title</p>
+          </div>
+          <div class="sidebar__main--text-container">
+            <p class="time">time</p>
+          </div>
+          <div class="sidebar__main--icon">
+            <div class="pencil-icon">
+              <i class="ph ph-pencil-simple"></i>
+            </div>
+
+            <div class="trash-icon">
+              <i class="ph ph-trash"></i>
+            </div>
+          </div>
+        </li> -->
+      </ul>
+
+      <div class="sidebar__main--form-container hidden">
+        <form action="#" class="sidebar__main--marker-form">
+          <div class="title-container">
+            <label for="title">Title</label>
+            <input type="text" id="title" />
+          </div>
+          <div class="categories-container">
+            <label for="categories">Categories</label>
+            <select name="categories" id="categories">
+              <option value="restaurants" selected hidden>Categories</option>
+              <option value="restaurants">Restaurants and Cafes</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="shopping">Shopping</option>
+              <option value="fitness">Fitness and Health</option>
+              <option value="education">Education and Learning</option>
+              <option value="nature">Nature</option>
+            </select>
+          </div>
+          <div class="description-container">
+            <label for="description">Description</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              cols="50"
+              placeholder="Enter a description for this location..."
+            ></textarea>
+          </div>
+          <button type="submit" class="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="map"></div>
+    <div class="getLocation-icon-container">
+      <i class="ph-fill ph-gps-fix"></i>
+    </div>
+  </body>
+</html>

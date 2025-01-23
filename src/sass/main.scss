@@ -1,0 +1,268 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  transition: all 0.3s ease-in-out;
+}
+*:hover {
+  transition: all 0.3s ease;
+}
+
+@mixin box-shadow-all {
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+@mixin box-shadow-right {
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3),
+    0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+@mixin form-input-styles {
+  width: 10rem;
+  border-radius: 0.4rem;
+  border: 1px solid #eee;
+  padding: 0.4rem;
+  color: #1f1f1f;
+}
+@mixin focus-form-style {
+  outline: none;
+  border: 1px solid rgba(194, 231, 255, 0.212);
+  box-shadow: 0px 1.3px 2.4px -10px rgba(194, 231, 255, 0.5),
+    0px 10px 19px -10px rgba(194, 231, 255, 0.5);
+}
+@mixin sidebar-posed-el {
+  left: 6.8rem;
+  top: 0;
+  position: absolute;
+}
+.hidden {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+i,
+a {
+  cursor: pointer;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: "Manrope", serif;
+  font-weight: 500;
+  color: #333;
+
+  line-height: 1;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  z-index: 99999;
+  width: 5%;
+  height: 100%;
+  @include box-shadow-all();
+  display: flex;
+
+  &__nav {
+    width: 100%;
+    z-index: 99999999;
+    @include box-shadow-all();
+    padding: 2rem 1.5rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__icon-container {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .add-container {
+        &.hidden {
+          opacity: 0;
+        }
+      }
+      .add-icon {
+        background-color: #c2e7ff;
+        border-radius: 0.8rem;
+        padding: 0.5rem;
+        color: #0b57d0;
+      }
+    }
+
+    &__icon {
+      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__main {
+    // List of Marked location
+    &--list-container {
+      @include sidebar-posed-el();
+
+      width: 30rem;
+      height: 100%;
+      background: #fff;
+    }
+
+    &--list {
+      cursor: pointer;
+      border-left: 4px solid #c2e7ff;
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 2rem;
+      align-items: center;
+    }
+
+    &--icon {
+      display: flex;
+      gap: 0.8rem;
+      i {
+        font-size: 1.6rem;
+        color: #fff;
+        display: block;
+        background-color: #c2e7ff;
+        border-radius: 0.4rem;
+        padding: 0.4rem;
+      }
+    }
+
+    &--text-container {
+      font-size: 1.4rem;
+    }
+    // Form of submit location
+    &--form-container {
+      @include sidebar-posed-el();
+      background-color: #fff;
+      height: 100%;
+    }
+    &--marker-form {
+      padding: 2rem 1.5rem 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 2rem 0;
+
+      .description-container,
+      .submit {
+        grid-column: 1/-1;
+      }
+
+      .description-container,
+      .title-container,
+      .categories-container {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .title-container {
+        input {
+          @include form-input-styles();
+          &:focus {
+            @include focus-form-style;
+          }
+        }
+      }
+      .categories-container {
+        select {
+          @include form-input-styles();
+          &:focus {
+            @include focus-form-style;
+          }
+        }
+      }
+      .description-container {
+        label {
+          display: none;
+        }
+        textarea {
+          width: 34rem;
+          border: none;
+          border-radius: 0.4rem;
+          border: 1px solid #eee;
+          padding: 0.4rem;
+          color: #1f1f1f;
+
+          &:focus {
+            @include focus-form-style;
+          }
+
+          &::placeholder {
+            font-size: 1.2rem;
+            font-family: "Manrope", serif;
+            font-weight: 500;
+            color: #868e96;
+          }
+        }
+      }
+    }
+    .submit {
+      @include form-input-styles();
+      border: none;
+      padding: 8px 16px;
+      background-color: #c2e7ff;
+      color: #0b57d0;
+      justify-self: center;
+    }
+  }
+}
+
+.getLocation-icon-container {
+  @include box-shadow-all();
+  border-radius: 8px;
+  width: 29px;
+  height: 29px;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 1.8rem;
+  z-index: 99999;
+  position: absolute;
+  right: 20;
+  bottom: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    font-size: 2.2rem;
+    color: #1f1f1f;
+  }
+}
+.cur-location {
+  font-size: 1.2rem;
+}
+
+.places {
+  font-size: 1.2rem;
+  &__restaurants {
+    .leaflet-popup-content-wrapper {
+      border-left: 4px solid #3478f5;
+    }
+  }
+}
+.leaflet-popup-content-wrapper {
+  border-radius: 5px !important;
+  padding-right: 0.6rem !important;
+}

@@ -4,10 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  transition: all 0.3s ease-in-out;
+  // transition: all 0.3s ease-in-out;
 }
 *:hover {
-  transition: all 0.3s ease;
+  // transition: all 0.3s ease;
 }
 
 @mixin box-shadow-all {

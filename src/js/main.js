@@ -110,7 +110,11 @@ class App {
     }
 
     const { latitude, longitude } = position.coords;
-    this.#map.setView([latitude, longitude], this.#mapZoomLevel);
+    this.#map.flyTo([latitude, longitude], this.#mapZoomLevel, {
+      animate: true,
+      duration: 1.5, // Smooth animation duration
+      easeLinearity: 0.25, // Adjust easing for smoother feel
+    });
     this.#showCurLocMarker(latitude, longitude, true);
 
     // Save the current location to localStorage
